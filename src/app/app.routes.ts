@@ -1,16 +1,36 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+    // WEBSITE
     {
-        path: 'login',
-        loadComponent: () =>
-            import('./features/auth/pages/login/login')
-                .then(m => m.Login)
+        path: '',
+        loadChildren: () =>
+            import('./features/website/website.routes')
+                .then(m => m.WEBSITE_ROUTES)
     },
+
+    // AUTH
     {
-        path: 'register',
+        path: 'auth',
+        loadChildren: () =>
+            import('./features/auth/auth.routes')
+                .then(m => m.AUTH_ROUTES)
+    },
+
+    // ADMIN
+    {
+        path: 'admin',
+        canActivate: [authGuard, adminGuard],
+        loadChildren: () =>
+            import('./features/admin/admin.routes')
+                .then(m => m.ADMIN_ROUTES)
+    },
+
+    // NOT FOUND
+    {
+        path: '**',
         loadComponent: () =>
-            import('./features/auth/pages/register/register')
-                .then(m => m.Register)
+            import('./shared/components/not-found/not-found.component')
+                .then(c => c.NotFoundComponent)
     }
 ];

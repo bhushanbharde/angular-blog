@@ -1,0 +1,52 @@
+<!-- login.component.html -->
+<div class="bg-gray-900 text-gray-100 p-20 relative">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="my-auto mx-auto w-fit obsolute top-20">
+        <h2 class="text-3xl">Log In to Your Blog Account</h2>
+
+        <!-- Email Field -->
+
+        <div class="my-4">
+            <label class="mb-2 block">Email</label>
+            <app-input label="Email Address" type="email" formControlName="email"
+                placeholder="Enter your email" class=""></app-input>
+
+            @if (email.invalid && email.touched) {
+            <span class="text-red-500 text-sm">
+                @if (email.errors?.['required']) {
+                <span>Email is required</span>
+                }
+                @if (email.errors?.['email']) {
+                <span>Invalid email format</span>
+                }
+            </span>
+            }
+        </div>
+
+        <!-- Password Field -->
+        <div class="my-4">
+            <label class="mb-2 block">Password</label>
+            <app-input label="Password" type="password" formControlName="password"
+                placeholder="Enter your password"></app-input>
+
+            @if (password.invalid && password.touched) {
+            <span class="text-red-500 text-sm">
+                @if (password.errors?.['required']) {
+                <span>Password is required</span>
+                }
+                @if (password.errors?.['minlength']) {
+                <span>Min 4 characters</span>
+                }
+            </span>
+            }
+        </div>
+
+        <!-- Server Error -->
+        @if (errorMessage) {
+        <div class="text-red-500">{{ errorMessage }}</div>
+        }
+
+        <app-button type="submit" [disabled]="isLoading" class="mt-4" variant="primary">
+            {{ isLoading ? 'Logging in...' : 'Login' }}
+        </app-button>
+    </form>
+</div>

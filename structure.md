@@ -1,52 +1,89 @@
 src/app/
 
-core/
+├── core/
 │
-├── services/
-│   ├── auth.service.ts
-│   └── api.service.ts
+│   ├── guards/
+│   │     ├── auth.guard.ts
+│   │     ├── admin.guard.ts
+│   │     └── guest.guard.ts
+│   │
+│   ├── interceptors/
+│   │
+│   ├── services/
+│   │
+│   └── models/
 │
-├── guards/
-│   └── auth.guard.ts
+├── shared/
+│   ├── components/
+│   ├── pipes/
+│   ├── directives/
+│   └── shared.module.ts
 │
-├── interceptors/
-│   ├── auth.interceptor.ts
-│   └── error.interceptor.ts
+├── layouts/
 │
-├── models/
-│   ├── user.model.ts
-│   └── auth-response.model.ts
+│   ├── admin-layout/
+│   │     ├── sidebar/
+│   │     ├── header/
+│   │     └── admin-layout.component.ts
+│   │
+│   └── website-layout/
+│         ├── navbar/
+│         ├── footer/
+│         └── website-layout.component.ts
 │
-└── core.config.ts
-
-features/
+├── features/
 │
-└── auth/
-    ├── pages/
-    │   ├── login/
-    │   └── register/
-    │
-    ├── components/
-    │
-    ├── services/
-    │
-    └── auth.routes.ts
-
-layout/
+│   ├── auth/
+│   │
+│   ├── admin/
+│   │
+│   │   ├── dashboard/
+│   │   │
+│   │   ├── posts/
+│   │   │
+│   │   │     ├── pages/
+│   │   │     │     ├── post-list/
+│   │   │     │     ├── post-create/
+│   │   │     │     └── post-edit/
+│   │   │     │
+│   │   │     ├── components/
+│   │   │     │     ├── post-table/
+│   │   │     │     └── post-form/
+│   │   │     │
+│   │   │     ├── services/
+│   │   │     │     └── admin-post.service.ts
+│   │   │     │
+│   │   │     └── store/
+│   │   │
+│   │   ├── users/
+│   │   ├── categories/
+│   │   ├── tags/
+│   │   └── comments/
+│   │
+│   └── website/
 │
-├── navbar/
-├── sidebar/
-└── auth-layout/
-
-shared/
+│       ├── home/
+│       │
+│       ├── blog/
+│       │
+│       │     ├── pages/
+│       │     │     ├── blog-list/
+│       │     │     └── blog-detail/
+│       │     │
+│       │     ├── components/
+│       │     │     ├── blog-card/
+│       │     │     ├── blog-search/
+│       │     │     ├── comment-section/
+│       │     │     ├── like-button/
+│       │     │     └── share-button/
+│       │     │
+│       │     ├── services/
+│       │     │     └── blog.service.ts
+│       │     │
+│       │     └── store/
+│       │
+│       ├── profile/
+│       └── bookmarks/
 │
-├── components/
-│
-├── ui/
-│   ├── button/
-│   ├── input/
-│   └── spinner/
-│
-└── pipes/
-
-app.routes.ts
+├── app.routes.ts
+└── app.config.ts
