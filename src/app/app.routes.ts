@@ -1,36 +1,22 @@
+// src/app/app.routes.ts
 import { Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
-    // WEBSITE
+    {
+        path: 'login',
+        loadComponent: () =>
+            import('./features/auth/pages/login/login.component').then((m) => m.LoginComponent),
+    },
+    {
+        path: 'dashboard',
+        loadComponent: () =>
+            import('./features/admin/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+        canActivate: [authGuard],                // ✅ Protected!
+    },
     {
         path: '',
-        loadChildren: () =>
-            import('./features/website/website.routes')
-                .then(m => m.WEBSITE_ROUTES)
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
     },
-
-    // AUTH
-    {
-        path: 'auth',
-        loadChildren: () =>
-            import('./features/auth/auth.routes')
-                .then(m => m.AUTH_ROUTES)
-    },
-
-    // ADMIN
-    {
-        path: 'admin',
-        canActivate: [authGuard, adminGuard],
-        loadChildren: () =>
-            import('./features/admin/admin.routes')
-                .then(m => m.ADMIN_ROUTES)
-    },
-
-    // NOT FOUND
-    {
-        path: '**',
-        loadComponent: () =>
-            import('./shared/components/not-found/not-found.component')
-                .then(c => c.NotFoundComponent)
-    }
 ];

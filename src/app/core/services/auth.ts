@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { LoginPayload, LoginResponse, User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 // This service handles - 
@@ -35,7 +36,7 @@ export class Auth {
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSubject.asObservable(); // ✅ expose as Observable
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   // STEP 2 — Login API call
   login(payload: LoginPayload): Observable<LoginResponse> {
@@ -67,6 +68,10 @@ export class Auth {
     this.currentUserSubject.next(user);
   }
 
+  isAdmin(): boolean {
+    return this.currentUserSubject.value?.role === 'admin';
+  }
+
   // STEP 7 — Fetch current user from API (for app init)
   fetchCurrentUser(): Observable<User> {
     return this.http
@@ -78,6 +83,12 @@ export class Auth {
   logout(): void {
     localStorage.removeItem('auth_token');
     this.currentUserSubject.next(null);
+    this.router.navigate(['/login']);
+  }
+
+  // In auth.service.ts
+  logoutApi(): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/auth/logout`, {});
   }
 
 }
