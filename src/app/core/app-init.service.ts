@@ -1,13 +1,13 @@
 // src/app/core/app-init.service.ts
 import { Injectable } from '@angular/core';
-import { Auth } from './services/auth';
+import { AuthService } from './services/auth.service';
 import { TokenService } from './token.service';
 import { catchError, EMPTY } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AppInitService {
   constructor(
-    private authService: Auth,
+    private authService: AuthService,
     private tokenService: TokenService
   ) { }
 

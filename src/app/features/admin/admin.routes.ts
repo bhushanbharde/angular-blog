@@ -1,115 +1,117 @@
+import { Routes } from "@angular/router";
+
 export const ADMIN_ROUTES: Routes = [
 
     {
-        path: '',
-        component: AdminLayoutComponent,
+        // path: '',
+        // component: AdminLayoutComponent,
 
         children: [
 
             // DASHBOARD
-            {
-                path: '',
-                component: DashboardPageComponent
-            },
+            // {
+            //     path: '',
+            //     component: DashboardPageComponent
+            // },
 
             // POSTS
-            {
-                path: 'posts',
-                children: [
+            // {
+            //     path: 'posts',
+            //     children: [
 
-                    {
-                        path: '',
-                        component: AdminPostListPageComponent
-                    },
+            //         {
+            //             path: '',
+            //             component: AdminPostListPageComponent
+            //         },
 
-                    {
-                        path: 'create',
-                        component: AdminPostCreatePageComponent
-                    },
+            //         {
+            //             path: 'create',
+            //             component: AdminPostCreatePageComponent
+            //         },
 
-                    {
-                        path: ':id/edit',
-                        component: AdminPostEditPageComponent
-                    }
+            //         {
+            //             path: ':id/edit',
+            //             component: AdminPostEditPageComponent
+            //         }
 
-                ]
-            },
+            //     ]
+            // },
 
             // CATEGORIES
-            {
-                path: 'categories',
-                children: [
+            // {
+            //     path: 'categories',
+            //     children: [
 
-                    {
-                        path: '',
-                        component: CategoryListPageComponent
-                    },
+            //         {
+            //             path: '',
+            //             component: CategoryListPageComponent
+            //         },
 
-                    {
-                        path: 'create',
-                        component: CategoryCreatePageComponent
-                    },
+            //         {
+            //             path: 'create',
+            //             component: CategoryCreatePageComponent
+            //         },
 
-                    {
-                        path: ':id/edit',
-                        component: CategoryEditPageComponent
-                    }
+            //         {
+            //             path: ':id/edit',
+            //             component: CategoryEditPageComponent
+            //         }
 
-                ]
-            },
+            //     ]
+            // },
 
             // TAGS
-            {
-                path: 'tags',
-                children: [
+            // {
+            //     path: 'tags',
+            //     children: [
 
-                    {
-                        path: '',
-                        component: TagListPageComponent
-                    },
+            //         {
+            //             path: '',
+            //             component: TagListPageComponent
+            //         },
 
-                    {
-                        path: 'create',
-                        component: TagCreatePageComponent
-                    },
+            //         {
+            //             path: 'create',
+            //             component: TagCreatePageComponent
+            //         },
 
-                    {
-                        path: ':id/edit',
-                        component: TagEditPageComponent
-                    }
+            //         {
+            //             path: ':id/edit',
+            //             component: TagEditPageComponent
+            //         }
 
-                ]
-            },
+            //     ]
+            // },
 
             // USERS
-            {
-                path: 'users',
-                children: [
+            // {
+            //     path: 'users',
+            //     children: [
 
-                    {
-                        path: '',
-                        component: UserListPageComponent
-                    },
+            //         {
+            //             path: '',
+            //             component: UserListPageComponent
+            //         },
 
-                    {
-                        path: ':id/edit',
-                        component: UserEditPageComponent
-                    }
+            //         {
+            //             path: ':id/edit',
+            //             component: UserEditPageComponent
+            //         }
 
-                ]
-            },
+            //     ]
+            // },
 
             // COMMENTS
-            {
-                path: 'comments',
-                component: CommentModerationPageComponent
-            },
+            // {
+            //     path: 'comments',
+            //     component: CommentModerationPageComponent
+            // },
 
             // SETTINGS
-            {
-                path: 'settings',
-                component: SettingsPageComponent
-            }
+            // {
+            //     path: 'settings',
+            //     component: SettingsPageComponent
+            // }
 
         ]
     }

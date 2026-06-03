@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Auth } from "../../../core/services/auth";
+import { AuthService } from "../../../core/services/auth.service";
 import { AsyncPipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import {User} from '../../../core/models/user.model';
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 export class NavbarComponent {
   currentUser$: any;
 
-  constructor(private authService: Auth, private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     
   }
 

@@ -12,11 +12,16 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () =>
             import('./features/admin/dashboard/dashboard.component').then((m) => m.DashboardComponent),
-        canActivate: [authGuard],                // ✅ Protected!
+        // canActivate: [authGuard],                // ✅ Protected!
+    },
+    {
+        path: 'home',
+        loadComponent: () =>
+            import('./features/website/home/home/home.component').then((m) => m.HomeComponent),
     },
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'home',
         pathMatch: 'full',
     },
 ];

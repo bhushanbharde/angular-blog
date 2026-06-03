@@ -91,3 +91,77 @@ src/app/
 
 
 ng generate @angular/core:control-flow
+
+
+src/
+│
+├── app/
+│
+├── core/
+│   ├── services/
+│   │   ├── api.service.ts
+│   │   ├── auth.service.ts
+│   │   ├── post.service.ts
+│   │   ├── category.service.ts
+│   │   └── tag.service.ts
+│   │
+│   ├── guards/
+│   │   ├── auth.guard.ts
+│   │   └── guest.guard.ts
+│   │
+│   ├── interceptors/
+│   │   ├── auth.interceptor.ts
+│   │   └── error.interceptor.ts
+│   │
+│   └── models/
+│       ├── user.model.ts
+│       ├── post.model.ts
+│       └── category.model.ts
+│
+├── shared/
+│   ├── components/
+│   │   ├── navbar/
+│   │   ├── footer/
+│   │   ├── pagination/
+│   │   └── loader/
+│   │
+│   ├── pipes/
+│   └── directives/
+│
+├── modules/
+│
+│   ├── website/
+│   │
+│   │   ├── pages/
+│   │   │   ├── home/
+│   │   │   ├── post-detail/
+│   │   │   ├── category-posts/
+│   │   │   └── tag-posts/
+│   │
+│   │   ├── website-routing.module.ts
+│   │   └── website.module.ts
+│
+│   ├── auth/
+│   │
+│   │   ├── pages/
+│   │   │   ├── login/
+│   │   │   ├── register/
+│   │   │   └── forgot-password/
+│   │
+│   │   ├── auth-routing.module.ts
+│   │   └── auth.module.ts
+│
+│   └── admin/
+│       │
+│       ├── pages/
+│       │   ├── dashboard/
+│       │   ├── posts/
+│       │   ├── categories/
+│       │   ├── tags/
+│       │   └── users/
+│       │
+│       ├── admin-routing.module.ts
+│       └── admin.module.ts
+│
+├── app-routing.module.ts
+└── app.module.ts

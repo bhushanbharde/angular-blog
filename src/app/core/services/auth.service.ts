@@ -4,32 +4,10 @@ import { LoginPayload, LoginResponse, User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-
-// This service handles - 
-// login
-// register
-// logout
-// current user
-// token storage
-// auth state
-
-// User submits form
-//     ↓
-// Angular calls / login
-//     ↓
-// Laravel returns token + user
-//     ↓
-// Store token
-//     ↓
-// Update auth state
-//     ↓
-// Redirect dashboard
-
 @Injectable({
   providedIn: 'root',
 })
-
-export class Auth {
+export class AuthService {
   private apiUrl = 'http://localhost:8000/api'; // Update with your Laravel API URL
 
   // BehaviorSubject for reactive auth state (null = not logged in)
@@ -90,5 +68,4 @@ export class Auth {
   logoutApi(): Observable<void> {
     return this.http.post<void>(`${this.apiUrl}/auth/logout`, {});
   }
-
 }

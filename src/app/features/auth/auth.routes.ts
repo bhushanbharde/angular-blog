@@ -1,34 +1,36 @@
+import { Routes } from "@angular/router";
+
 export const AUTH_ROUTES: Routes = [
 
     {
         path: '',
-        component: AuthLayoutComponent,
+        // component: AuthLayoutComponent,
 
-        children: [
+        // children: [
 
-            {
-                path: 'login',
-                canActivate: [guestGuard],
-                component: LoginPageComponent
-            },
+        //     {
+        //         path: 'login',
+        //         canActivate: [guestGuard],
+        //         component: LoginPageComponent
+        //     },
 
-            {
-                path: 'register',
-                canActivate: [guestGuard],
-                component: RegisterPageComponent
-            },
+        //     {
+        //         path: 'register',
+        //         canActivate: [guestGuard],
+        //         component: RegisterPageComponent
+        //     },
 
-            {
-                path: 'forgot-password',
-                component: ForgotPasswordPageComponent
-            },
+        //     {
+        //         path: 'forgot-password',
+        //         component: ForgotPasswordPageComponent
+        //     },
 
-            {
-                path: 'reset-password/:token',
-                component: ResetPasswordPageComponent
-            }
+        //     {
+        //         path: 'reset-password/:token',
+        //         component: ResetPasswordPageComponent
+        //     }
 
-        ]
+        // ]
     }
 
 ];

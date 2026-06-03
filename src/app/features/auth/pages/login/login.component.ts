@@ -4,20 +4,20 @@ import { Router, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from "../../../../shared/components/input/input.component";
 import { ButtonComponent } from "../../../../shared/components/button/button.component";
-import { Auth } from "../../../../core/services/auth";
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   imports: [ReactiveFormsModule, RouterModule, InputComponent, ButtonComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   loginForm: FormGroup;
   isLoading = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: Auth) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]]
