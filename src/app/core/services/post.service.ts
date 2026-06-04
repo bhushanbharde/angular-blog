@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +9,8 @@ export class PostService {
 
   constructor(private apiService: ApiService) { }
 
-  getPosts() {
-    return this.apiService.get('');
+  getPosts():Observable<any> {
+    return this.apiService.get('posts');
   }
 
   getPost(id: number) {

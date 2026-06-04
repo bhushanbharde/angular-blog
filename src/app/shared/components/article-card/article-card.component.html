@@ -1,0 +1,42 @@
+<div class="">
+    <img class="h-2/5 w-full object-cover" src="{{ article?.cover_image }}" alt="">
+    <div class="text-sm flex items-center gap-2 my-6 text-gray-400">
+
+        <a routerLink="/users/{{ user?.id }}" class="flex items-center gap-2">
+            <img class="rounded-full w-8 " src="{{ user?.avatar }}" alt="">
+            <span>{{ user?.name }}</span>
+        </a>
+            
+        <fa-icon [icon]="faCircle" class="text-[4px]"></fa-icon>
+        <span>{{ article?.created_at | date:'MMM dd' }}</span>
+    </div>
+
+    <div class="my-4">
+        <h2 class="mt-2 mb-2 text-lg font-bold line-clamp-2">{{ article?.title }}</h2>
+        <p class="line-clamp-2 text-md text-gray-400">{{ article?.content | stripTags }}</p>
+    </div>
+
+    <div class="flex justify-between items-center py-4 my-2">
+        <div class="flex text-gray-400 text-sm gap-6">
+            <div>
+                <fa-icon [icon]="faHeart"></fa-icon> 34
+            </div>
+            <div>
+                <fa-icon [icon]="faComment"></fa-icon> 3
+            </div>
+            <div>
+                <fa-icon [icon]="faRetweet"></fa-icon>
+                <span>12</span>
+            </div>
+        </div>
+
+        <div class="flex text-gray-400 gap-4">
+            <div>
+                <fa-icon [icon]="faBookmark"></fa-icon>
+            </div>
+            <div>
+                <fa-icon [icon]="faShareNodes"></fa-icon>
+            </div>
+        </div>
+    </div>
+</div>

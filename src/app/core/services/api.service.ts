@@ -11,7 +11,6 @@ export class ApiService {
   
   // Example method to make a GET request
   get(url: string) {
-    console.log(`${environment.apiUrl}/${url}`);
     return this.http.get(`${environment.apiUrl}/${url}`);
   }
   

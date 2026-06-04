@@ -1,33 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { PostService } from '../../../../core/services/post.service';
 import { CommonModule } from '@angular/common';
+import { PostCardComponent } from "../../../../shared/components/post-card/post-card.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, PostCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  private postService = inject(PostService);
 
-  posts: any[] = [];
+  // 1. Define posts as a writeable signal instead of a regular array
+  posts = signal<any[]>([]);
 
-  constructor(private postService: PostService) { }
-  
   ngOnInit(): void {
     this.loadPosts();
   }
 
   loadPosts(): void {
     this.postService.getPosts().subscribe({
-      next: (data: any) => {
-        if(data && data.posts) {
-          this.posts = Object.values(data.posts);
+      next: (res: any) => {
+        if (res && res.posts) {
+          // 2. Update the signal value using .set()
+          this.posts.set(res.posts);
         }
       },
-      error: (err) => {
-        console.error('Error fetching posts:', err);
-      }
+      error: (err:any) => console.error(err)
     });
   }
 }

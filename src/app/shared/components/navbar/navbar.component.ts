@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthService } from "../../../core/services/auth.service";
-import { AsyncPipe } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import {User} from '../../../core/models/user.model';
 import { Observable } from 'rxjs';
@@ -8,7 +7,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
-  imports: [AsyncPipe, RouterLink],
+  imports: [],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })

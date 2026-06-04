@@ -15,13 +15,12 @@ export const routes: Routes = [
         // canActivate: [authGuard],                // ✅ Protected!
     },
     {
-        path: 'home',
-        loadComponent: () =>
-            import('./features/website/home/home/home.component').then((m) => m.HomeComponent),
+        path: '',
+        loadChildren: () =>
+            import('./features/website/website.routes').then((m) => m.WEBSITE_ROUTES),
     },
     {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-    },
+        path: '**',
+        redirectTo: '',
+    }
 ];

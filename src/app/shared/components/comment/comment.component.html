@@ -1,0 +1,27 @@
+<div class="text-sm py-6 border-b border-b-gray-700">
+    <div class="flex gap-3 ">
+        <img src="{{ comment?.user?.avatar }}" class="w-10 rounded-full" alt="">
+        <div class="">
+            <p class="text-md">{{ comment?.user?.name }}</p>
+            <p class="text-gray-400">Apr 14</p>
+        </div>
+    </div>
+
+    <div>
+        <p class="my-6">{{ comment?.content }}</p>
+    </div>
+
+    <div class="flex items-center gap-10 mt-4 text-gray-400">
+        <div>
+            <fa-icon [icon]="faHeart"></fa-icon>
+            2
+        </div>
+        <div>
+            <fa-icon [icon]="faComment"></fa-icon>
+            3 replies
+        </div>
+        <div>
+            <a href="" class="flex items-center gap-1 hover:underline">Reply</a>
+        </div>
+    </div>
+</div>

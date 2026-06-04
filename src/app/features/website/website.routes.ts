@@ -1,6 +1,8 @@
 
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
+import { WebsiteLayoutComponent } from './layouts/website-layout/website-layout.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 // import { LoginComponent } from './features/auth/pages/login/login.component';
 // import { authGuard } from '../../core/guards/auth.guard';
 // import { WebsiteLayoutComponent } from './layout/website-layout.component';
@@ -18,61 +20,61 @@ export const WEBSITE_ROUTES: Routes = [
 
     {
         path: '',
-        component: HomeComponent,
+        component: WebsiteLayoutComponent,
 
-        // children: [
+        children: [
 
-        //     // HOME
-        //     {
-        //         path: '',
-        //         component: HomePageComponent
-        //     },
+            // HOME
+            {
+                path: '',
+                component: HomeComponent
+            },
 
-        //     // BLOG LIST
-        //     {
-        //         path: 'posts',
-        //         component: BlogListPageComponent
-        //     },
+            // BLOG LIST
+            // {
+            //     path: 'posts',
+            //     component: BlogListPageComponent
+            // },
 
-        //     // POST DETAILS
-        //     {
-        //         path: 'posts/:slug',
-        //         component: BlogDetailPageComponent
-        //     },
+            // POST DETAILS
+            {
+                path: 'post/:id',
+                component: BlogDetailComponent,
+                data: { hideSidebar: true }
+            },
 
-        //     // CATEGORY POSTS
-        //     {
-        //         path: 'categories/:slug',
-        //         component: CategoryPostsPageComponent
-        //     },
+            // // CATEGORY POSTS
+            // {
+            //     path: 'categories/:slug',
+            //     component: CategoryPostsPageComponent
+            // },
 
-        //     // TAG POSTS
-        //     {
-        //         path: 'tags/:slug',
-        //         component: TagPostsPageComponent
-        //     },
+            // // TAG POSTS
+            // {
+            //     path: 'tags/:slug',
+            //     component: TagPostsPageComponent
+            // },
 
-        //     // SEARCH
-        //     {
-        //         path: 'search',
-        //         component: SearchPageComponent
-        //     },
+            // // SEARCH
+            // {
+            //     path: 'search',
+            //     component: SearchPageComponent
+            // },
 
-        //     // USER PROFILE
-        //     {
-        //         path: 'profile',
-        //         canActivate: [authGuard],
-        //         component: ProfilePageComponent
-        //     },
+            // // USER PROFILE
+            // {
+            //     path: 'profile',
+            //     canActivate: [authGuard],
+            //     component: ProfilePageComponent
+            // },
 
-        //     // BOOKMARKS
-        //     {
-        //         path: 'bookmarks',
-        //         canActivate: [authGuard],
-        //         component: BookmarkPageComponent
-        //     }
+            // // BOOKMARKS
+            // {
+            //     path: 'bookmarks',
+            //     canActivate: [authGuard],
+            //     component: BookmarkPageComponent
+            // }
 
-        // ]
+        ]
     }
-
 ];
