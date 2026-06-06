@@ -25,6 +25,7 @@ export class HomeComponent {
         if (res && res.posts) {
           // 2. Update the signal value using .set()
           this.posts.set(res.posts);
+          console.log('Posts loaded:', res);
         }
       },
       error: (err:any) => console.error(err)

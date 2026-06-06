@@ -11,15 +11,18 @@ export class ApiService {
   
   // Example method to make a GET request
   get(url: string) {
+    // console.log(`${environment.apiUrl}/${url}`);
     return this.http.get(`${environment.apiUrl}/${url}`);
   }
   
   // Example method to make a POST request
   post(url: string, body: any) {
+    // console.log(body, `${environment.apiUrl}/${url}`);
     return this.http.post(`${environment.apiUrl}/${url}`, body);
   }
 
   put(url: string, body: any) {
+    console.log(`${environment.apiUrl}/${url}`);
     return this.http.put(`${environment.apiUrl}/${url}`, body);
   }
 

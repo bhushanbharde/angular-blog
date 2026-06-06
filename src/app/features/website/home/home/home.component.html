@@ -1,7 +1,6 @@
 <div class="">
     <h1 class="text-4xl font-semibold mb-6 text-gray-300">Top Articles</h1>
 
-    <!-- 2. Add parentheses inside your loop statement -->
     <div *ngFor="let post of posts()">
         <app-post-card [post]="post"></app-post-card>
     </div>

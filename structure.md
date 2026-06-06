@@ -1,7 +1,6 @@
 src/app/
 
 ├── core/
-│
 │   ├── guards/
 │   │     ├── auth.guard.ts
 │   │     ├── admin.guard.ts
@@ -20,7 +19,6 @@ src/app/
 │   └── shared.module.ts
 │
 ├── layouts/
-│
 │   ├── admin-layout/
 │   │     ├── sidebar/
 │   │     ├── header/
@@ -31,37 +29,89 @@ src/app/
 │         ├── footer/
 │         └── website-layout.component.ts
 │
-├── features/
-│
-│   ├── auth/
-│   │
-│   ├── admin/
-│   │
-│   │   ├── dashboard/
-│   │   │
-│   │   ├── posts/
-│   │   │
-│   │   │     ├── pages/
-│   │   │     │     ├── post-list/
-│   │   │     │     ├── post-create/
-│   │   │     │     └── post-edit/
-│   │   │     │
-│   │   │     ├── components/
-│   │   │     │     ├── post-table/
-│   │   │     │     └── post-form/
-│   │   │     │
-│   │   │     ├── services/
-│   │   │     │     └── admin-post.service.ts
-│   │   │     │
-│   │   │     └── store/
-│   │   │
-│   │   ├── users/
-│   │   ├── categories/
-│   │   ├── tags/
-│   │   └── comments/
+features/
+└── admin/
+    │
+    ├── dashboard/
+    │
+    ├── users/
+    │   ├── pages/
+    │   │   ├── user-list/
+    │   │   ├── user-detail/
+    │   │   ├── user-create/
+    │   │   └── user-edit/
+    │   │
+    │   ├── components/
+    │   │   ├── user-form/
+    │   │   └── user-table/
+    │   │
+    │   ├── services/
+    │   │   └── user.service.ts
+    │   │
+    │   ├── models/
+    │   │   └── user.model.ts
+    │   │
+    │   └── routes.ts
+    │
+    ├── posts/
+    │   ├── pages/
+    │   │   ├── post-list/
+    │   │   ├── post-create/
+    │   │   └── post-edit/
+    │   │
+    │   ├── components/
+    │   │   ├── post-form/
+    │   │   ├── post-table/
+    │   │   └── post-filters/
+    │   │
+    │   ├── services/
+    │   │   └── post.service.ts
+    │   │
+    │   ├── models/
+    │   │   └── post.model.ts
+    │   │
+    │   └── routes.ts
+    │
+    ├── categories/
+    │   ├── pages/
+    │   │   ├── category-list/
+    │   │   ├── category-create/
+    │   │   └── category-edit/
+    │   │
+    │   ├── components/
+    │   │   ├── category-form/
+    │   │   └── category-table/
+    │   │
+    │   ├── services/
+    │   │   └── category.service.ts
+    │   │
+    │   └── routes.ts
+    │
+    ├── tags/
+    │   ├── pages/
+    │   │   ├── tag-list/
+    │   │   ├── tag-create/
+    │   │   └── tag-edit/
+    │   │
+    │   ├── components/
+    │   │   ├── tag-form/
+    │   │   └── tag-table/
+    │   │
+    │   ├── services/
+    │   │   └── tag.service.ts
+    │   │
+    │   └── routes.ts
+    │
+    |── settings/
+    |   ├── pages/
+    |   │   └── settings-page/
+    │   │
+    │   ├── services/
+    │   │   └── settings.service.ts
+    │   │
+    │   └── routes.ts
 │   │
 │   └── website/
-│
 │       ├── home/
 │       │
 │       ├── blog/

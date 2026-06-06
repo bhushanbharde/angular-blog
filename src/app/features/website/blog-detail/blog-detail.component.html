@@ -109,7 +109,7 @@
             </div>
             <app-input placeholder="What are your thoughts?"></app-input>
         </div>
-        <div class="" id="comment_block">
+        <div class="">
             @for (item of postDetails()?.post?.comments; track $index) {
             <app-comment [comment]="item"></app-comment>
             }

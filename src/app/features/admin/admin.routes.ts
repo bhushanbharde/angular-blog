@@ -1,18 +1,30 @@
 import { Routes } from "@angular/router";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { UserListComponent } from "./users/pages/user-list/user-list.component";
+import { AdminLayoutComponent } from "../../core/layout/admin-layout/admin-layout.component";
 
 export const ADMIN_ROUTES: Routes = [
 
     {
-        // path: '',
-        // component: AdminLayoutComponent,
+        path: '', //admin
+        component: AdminLayoutComponent,
 
         children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            },
+            {
+                path: 'dashboard',
+                component: DashboardComponent
+            },
 
-            // DASHBOARD
-            // {
-            //     path: '',
-            //     component: DashboardPageComponent
-            // },
+            // USERS
+            {
+                path: 'users', //admin/users
+                loadChildren: () => import('./users/users.routes').then(m => m.USERS_ROUTES)
+            },
 
             // POSTS
             // {
@@ -78,24 +90,6 @@ export const ADMIN_ROUTES: Routes = [
             //         {
             //             path: ':id/edit',
             //             component: TagEditPageComponent
-            //         }
-
-            //     ]
-            // },
-
-            // USERS
-            // {
-            //     path: 'users',
-            //     children: [
-
-            //         {
-            //             path: '',
-            //             component: UserListPageComponent
-            //         },
-
-            //         {
-            //             path: ':id/edit',
-            //             component: UserEditPageComponent
             //         }
 
             //     ]

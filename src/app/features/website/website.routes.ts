@@ -68,13 +68,7 @@ export const WEBSITE_ROUTES: Routes = [
             //     component: ProfilePageComponent
             // },
 
-            // // BOOKMARKS
-            // {
-            //     path: 'bookmarks',
-            //     canActivate: [authGuard],
-            //     component: BookmarkPageComponent
-            // }
-
         ]
     }
 ];
+

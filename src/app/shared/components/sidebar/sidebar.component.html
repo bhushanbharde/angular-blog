@@ -1,18 +1,46 @@
 <div class="">
-    <h4>Categories</h4>
+    <h2 class="mb-4">Staff Picks</h2>
+    <div>
+        @for (item of posts(); track $index) {
+        <div class="py-4 my-1">
+            <a routerLink="/users/{{ item?.user?.id }}" class="flex items-center text-sm gap-2">
+                <img class="w-8 rounded-full" src="{{ item?.user?.avatar }}" alt="">
+                <span>{{ item?.user?.name }}</span>
+            </a>
+            <a routerLink="/post/{{ item?.id }}" class="">
+                <h3 class="my-3 font-semibold">{{ item?.title }}</h3>
+            </a>
+            <p class="text-sm text-gray-400">{{ item?.created_at | date:'MMM dd, yyyy' }}</p>
+        </div>
+        }
+    </div>
+</div>
 
-    <ul>
-        <li>
-            category name
-        </li>
-    </ul>
+<a routerLink="/posts" class="text-sm hover:underline">See the full list</a>
 
-    <h4>Popular Tags From This Blog with Most Posts</h4>
+<h2 class="mb-8 mt-10">Recommended Topics</h2>
+<div class="flex flex-wrap gap-3 text-sm">
+    @for (tag of recommendedTopics(); track $index) {
+    <a routerLink="/tags/{{ tag.id }}"
+        class="inline-block px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300">{{ tag?.name }} ({{ tag?.posts_count }})</a>
+    }
+</div>
 
-    <ul>
-        <li>
-            tag_name
-        </li>
-    </ul>
+<h2 class="mb-4 mt-6">Who to follow</h2>
+<div>
+    @for (user of users(); track $index) {
+    <div class="flex justify-between items-start gap-1 my-6">
+        <a routerLink="/users/{{ user.id }}" class="flex items-start gap-3">
+            <img class="w-10 rounded-full" src="{{ user?.avatar }}" alt="">
+            <div class="">
+                <span class="font-semibold text-sm">{{ user?.name }}</span>
+                <p class="text-xs text-gray-400">{{ user?.about }}</p>
+            </div>
+        </a>
 
+        <a routerLink="" class="">
+            <app-button variant="outline">Follow</app-button>
+        </a>
+    </div>
+    }
 </div>

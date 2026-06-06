@@ -1,0 +1,72 @@
+<div class="mx-40">
+    <h1 class="text-4xl font-bold mb-6">
+        Create User
+    </h1>
+
+    @if(message()){
+        <div>
+            <app-alert [message]="message()" [type]="'success'" ></app-alert>
+        </div>
+    }
+
+    <div>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()"  class="text-sm">
+            <div class="mt-8">
+                <label class="mb-2 block ">User Name</label>
+                <app-input 
+                    type="text" 
+                    formControlName="name" 
+                    value="" 
+                    placeholder="Enter Name">
+                </app-input>
+            </div>
+            @if(f['name'].touched && f['name'].invalid){
+                @if(f['name'].errors?.['required']){
+                    <p class="mt-2 text-red-500">User name field is required.</p>
+                }
+                @if(f['name'].errors?.['minlength']){
+                    <p class="mt-2 text-red-500">Name must span at least 2 characters.</p>
+                }
+            }
+
+            <div class="mt-8">
+                <label class="mb-2 block ">Email Address</label>
+                <app-input type="text" formControlName="email" value="" placeholder="Enter Email"></app-input>
+            </div>
+            @if(f['email'].touched && f['email'].invalid){
+                @if(f['email'].errors?.['required']){
+                    <p class="mt-2 text-red-500">User email field is required.</p>
+                }
+                @if(f['email'].errors?.['email']){
+                    <p class="mt-2 text-red-500">Please provide a valid formatting address.</p>
+                }
+            }
+
+            <div class="mt-8">
+                <label class="mb-2 block ">Avatar</label>
+                <app-input type="text" formControlName="avatar" value="" placeholder="Enter Avatar"></app-input>
+            </div>
+
+            <div class="mt-8">
+                <label class="mb-2 block ">User Bio</label>
+                <app-input
+                    placeholder="Enter about yourself"
+                    formControlName="bio" 
+                    value="">
+                </app-input>
+            </div>
+            @if(f['bio'].touched && f['bio'].invalid){
+                @if(f['bio'].errors?.['required']){
+                    <p class="mt-2 text-red-500">User Bio field is required.</p>
+                }
+                @if(f['bio'].errors?.['maxlength']){
+                    <p class="mt-2 text-red-500">Bio cannot exceed 500 characters.</p>
+                }
+            }
+
+            <div class="mt-8 w-fit">
+                <app-button type="submit" variant="primary">Create User</app-button>
+            </div>
+        </form>
+    </div>
+</div>

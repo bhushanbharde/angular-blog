@@ -28,4 +28,16 @@ export class PostService {
   deletePost(id: number) {
     return this.apiService.delete(`posts/${id}`);
   }
+
+  getStaffPicks(): Observable<any> {
+    return this.apiService.get('staffpicks');
+  }
+
+  getRecommendedTopics(): Observable<any> {
+    return this.apiService.get('top-tags');
+  }
+
+  getUsers(): Observable<any> {
+    return this.apiService.get('top-authors');
+  }
 }

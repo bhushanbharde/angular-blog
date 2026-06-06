@@ -45,7 +45,6 @@ export class BlogDetailComponent {
         // Handle the response and display the post details
         // console.log(res);
         this.postDetails.set(res); // Update the signal with the post details, default to null if not found
-        console.log(this.postDetails());
       },
       error: (err) => console.error(err)
     });

@@ -9,15 +9,13 @@ export const routes: Routes = [
             import('./features/auth/pages/login/login.component').then((m) => m.LoginComponent),
     },
     {
-        path: 'dashboard',
-        loadComponent: () =>
-            import('./features/admin/dashboard/dashboard.component').then((m) => m.DashboardComponent),
-        // canActivate: [authGuard],                // ✅ Protected!
+        path: 'admin',
+        loadChildren: () => import('./features/admin/admin.routes').then((m) => m.ADMIN_ROUTES),
+        // canActivate: [authGuard],
     },
     {
         path: '',
-        loadChildren: () =>
-            import('./features/website/website.routes').then((m) => m.WEBSITE_ROUTES),
+        loadChildren: () => import('./features/website/website.routes').then((m) => m.WEBSITE_ROUTES),
     },
     {
         path: '**',
