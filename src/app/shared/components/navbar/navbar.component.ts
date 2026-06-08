@@ -3,16 +3,20 @@ import { AuthService } from "../../../core/services/auth.service";
 import { Router, RouterLink } from '@angular/router';
 import {User} from '../../../core/models/user.model';
 import { Observable } from 'rxjs';
-
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
+import { faBars, faSearch, faBell } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink],
+  imports: [RouterLink, FaIconComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
   currentUser$: any;
+  faBars = faBars;
+  faSearch = faSearch;
+  faBell = faBell;
 
   constructor(private authService: AuthService, private router: Router) {
     

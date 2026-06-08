@@ -1,11 +1,13 @@
-<app-navbar></app-navbar>
-
-<div class="flex">
-    <div class="w-[18%] px-4 pt-24 bg-gray-900 border-r border-r-gray-700 h-screen fixed">
-        <app-admin-menu></app-admin-menu>
-    </div>
-    <div class="w-[82%] pt-28 px-10 pb-20 ml-[18%]">
-        <router-outlet></router-outlet>
+<div class="overflow-hidden">
+    <app-navbar></app-navbar>
+    
+    <div class="flex">
+        <div class="w-[18%] px-4 pt-24 bg-gray-900 border-r border-r-gray-700 h-screen fixed">
+            <app-admin-menu></app-admin-menu>
+        </div>
+        <div class="w-[82%] pt-28 px-10 pb-20 ml-[18%] overflow-y-auto">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
 

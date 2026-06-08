@@ -1,1 +1,62 @@
-<h1>Admin Dashboard</h1>
+<div>
+    <div class="flex gap-6">
+        <div class="w-7/12">
+            <div class="flex gap-6">
+
+                <!-- Card -->
+                <div class="flex-1 border border-gray-700 bg-gray-800/50 px-6 py-8 rounded-xl">
+                    <span class="p-3 rounded-xl bg-blue-700/30 mb-6">
+                        <fa-icon [icon]="faUsers" class="text-lg text-gray-200"></fa-icon>
+                    </span>
+                    <p class="my-6 text-sm text-gray-400">Users</p>
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-3xl font-extrabold">3,782</h3>
+                        <span class="bg-green-900/50 text-green-600 px-2 py-1 rounded-2xl text-sm ">
+                            <fa-icon [icon]="faArrowUp"></fa-icon>
+                            11.03 %
+                        </span>
+                    </div>
+                </div>
+
+                <div class="flex-1 border border-gray-700 bg-gray-800/50 px-6 py-8 rounded-xl">
+                    <span class="p-3 rounded-xl bg-blue-700/30 mb-6">
+                        <fa-icon [icon]="faNewspaper" class="text-lg text-gray-200"></fa-icon>
+                    </span>
+                    <p class="my-6 text-sm text-gray-400">Articles</p>
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-3xl font-extrabold">5,689</h3>
+                        <span class="bg-green-900/50 text-green-600 px-2 py-1 rounded-2xl text-sm ">
+                            <fa-icon [icon]="faArrowUp"></fa-icon>
+                            11.03 %
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-gray-700 bg-gray-800/50 rounded-xl mt-6">
+                <div class="highcharts-dark p-4">
+                    <highcharts-chart [options]="chartOptions"></highcharts-chart>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-5/12 border border-gray-700 rounded-xl py-6 pl-6">
+            <h2 class="font-bold text-xl">Categories</h2>
+            <p class="text-sm text-gray-400">Target you've set for each month</p>
+
+            <div>
+                <div class="highcharts-dark p-4">
+                    <highcharts-chart [options]="pieOptions"></highcharts-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-6 p-6 border border-gray-700 rounded-xl bg-gray-800/50">
+    <h3 class="text-2xl mb-2">Statistics</h3>
+    <p class="text-sm text-gray-400">Target you've set for each month</p>
+
+    <div class="mt-8 w-full overflow-x-hidden">
+        <highcharts-chart [options]="linechartOptions"></highcharts-chart>
+    </div>
+</div>

@@ -23,7 +23,7 @@ export class ButtonComponent {
   // Map variant tokens directly to Tailwind v4 utility styles
   variantClasses = {
     primary: 'bg-blue-700 hover:bg-blue-600 disabled:bg-gray-400',
-    secondary: 'bg-gray-600 hover:bg-gray-700 disabled:bg-gray-400',
+    secondary: 'bg-gray-700 hover:bg-gray-600 disabled:bg-gray-400',
     danger: 'bg-red-700 hover:bg-red-600 disabled:bg-gray-400',
     outline: 'border border-gray-700 hover:bg-gray-700',
     info: 'bg-purple-700 hover:bg-purple-600 disabled:bg-gray-400'

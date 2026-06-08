@@ -1,6 +1,6 @@
-<div class="mx-40">
-    <div class="flex justify-between items-center">
-        <h1 class="text-4xl font-bold mb-6">
+<div class="mx-40 bg-gray-800/50 border border-gray-700 rounded-xl">
+    <div class="flex justify-between items-center p-6 border-b border-b-gray-700">
+        <h1 class="text-4xl font-bold">
             Edit User
         </h1>
         <div class="flex">
@@ -12,12 +12,12 @@
     </div>
 
     @if(message()){
-    <div>
+    <div class="px-6">
         <app-alert [message]="message()" [type]="'success'"></app-alert>
     </div>
     }
 
-    <div>
+    <div class="px-6 pb-6">
         <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="text-sm">
             <div class="mt-8">
                 <label class="mb-2 block ">User Name</label>

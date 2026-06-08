@@ -1,15 +1,17 @@
-<div class="mx-40">
-    <h1 class="text-4xl font-bold mb-6">
-        Create User
-    </h1>
+<div class="mx-40 bg-gray-800/50 border border-gray-700 rounded-xl">
+    <div class="border-b border-b-gray-700 p-6">
+        <h1 class="text-4xl font-bold">
+            Create User
+        </h1>
+    </div>
 
     @if(message()){
-        <div>
-            <app-alert [message]="message()" [type]="'success'" ></app-alert>
+        <div class="px-6">
+            <!-- <app-alert [message]="message()" [type]="'success'" ></app-alert> -->
         </div>
     }
 
-    <div>
+    <div class="px-6 pb-6">
         <form [formGroup]="userForm" (ngSubmit)="onSubmit()"  class="text-sm">
             <div class="mt-8">
                 <label class="mb-2 block ">User Name</label>
