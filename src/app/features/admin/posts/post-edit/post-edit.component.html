@@ -1,0 +1,83 @@
+<div class="mx-40 bg-gray-800/50 border border-gray-700 rounded-xl">
+  <div class="border-b border-b-gray-700 p-6 flex justify-between">
+    <h1 class="text-4xl font-bold">Edit Post</h1>
+    <a routerLink="/admin/posts/{{postId}}">
+        <app-button variant="info">Back</app-button>
+    </a>
+  </div>
+
+  @if (message()) {
+    <div class="px-6">
+      <app-alert [message]="message()" [type]="'success'"></app-alert>
+    </div>
+  }
+
+  <div class="px-6 pb-6">
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="text-sm">
+      <div class="mt-8">
+        <label class="mb-2 block">Post Title</label>
+        <app-input
+          type="text"
+          formControlName="title"
+          value=""
+          placeholder="Enter Title"
+        >
+        </app-input>
+      </div>
+      @if (f["title"].touched && f["title"].invalid) {
+        @if (f["title"].errors?.["required"]) {
+          <p class="mt-2 text-red-500">Post title field is required.</p>
+        }
+        @if (f["title"].errors?.["minlength"]) {
+          <p class="mt-2 text-red-500">
+            Title must span at least 2 characters.
+          </p>
+        }
+      }
+
+      <div class="mt-8">
+        <label class="mb-2 block">Post Content</label>
+        <app-textarea
+          placeholder="Enter Post Body"
+          formControlName="content"
+          value=""
+          [rows]="10"
+        ></app-textarea>
+      </div>
+      @if (f["content"].touched && f["content"].invalid) {
+        @if (f["content"].errors?.["required"]) {
+          <p class="mt-2 text-red-500">Post content field is required.</p>
+        }
+        @if (f["content"].errors?.["content"]) {
+          <p class="mt-2 text-red-500">
+            Please provide a valid formatting address.
+          </p>
+        }
+      }
+
+      <div class="mt-8">
+        <label class="mb-2 block">Cover Image</label>
+        <app-input
+          placeholder="Enter about yourself"
+          formControlName="cover_image"
+          value=""
+        >
+        </app-input>
+      </div>
+      @if (f["cover_image"].touched && f["cover_image"].invalid) {
+        @if (f["cover_image"].errors?.["required"]) {
+          <p class="mt-2 text-red-500">Cover image field is required.</p>
+        }
+        @if (f["cover_image"].errors?.["maxlength"]) {
+          <p class="mt-2 text-red-500">
+            Cover image cannot exceed 500 characters.
+          </p>
+        }
+      }
+
+      <div class="mt-8 w-fit">
+        <app-button type="submit" variant="primary" [disabled]="postForm.invalid || !postForm.dirty">Save Post</app-button>
+      </div>
+    </form>
+  </div>
+</div>

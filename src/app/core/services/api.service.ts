@@ -10,9 +10,9 @@ export class ApiService {
   constructor(private http: HttpClient) {}
   
   // Example method to make a GET request
-  get(url: string) {
+  get(url: string, params:any = {}) {
     // console.log(`${environment.apiUrl}/${url}`);
-    return this.http.get(`${environment.apiUrl}/${url}`);
+    return this.http.get(`${environment.apiUrl}/${url}`, {params});
   }
   
   // Example method to make a POST request

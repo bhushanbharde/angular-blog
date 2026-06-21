@@ -4,4 +4,15 @@
     <div *ngFor="let post of posts()" class="">
         <app-post-card [post]="post"></app-post-card>
     </div>
+
+    <!-- Pagination Controls -->
+    <div class="mt-10 flex gap-10 items-center text-sm text-gray-400">
+        <app-button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1"
+            variant="outline">Previous</app-button>
+    
+        <span>Page {{ currentPage }} of {{ lastPage }} | Total: {{ totalPosts }}</span>
+    
+        <app-button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === lastPage"
+            variant="outline">Next</app-button>
+    </div>
 </div>

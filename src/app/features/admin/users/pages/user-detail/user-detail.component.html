@@ -9,9 +9,7 @@
         <a routerLink='/admin/users/{{user()?.id}}/edit' class="">
             <app-button variant="outline">Edit</app-button>
         </a>
-        <a routerLink='/admin/users/{{user()?.id}}' class="">
-            <app-button variant="danger" (click)="onDelete()">Delete</app-button>
-        </a>
+        <app-button variant="danger" (click)="onDelete()">Delete</app-button>
         <a routerLink="/admin/profile" class="">
             <app-button variant="info">Profile</app-button>
         </a>

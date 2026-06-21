@@ -8,7 +8,7 @@ import { AlertComponent } from "../../../../../shared/components/alert/alert.com
 
 @Component({
   selector: 'app-user-create',
-  imports: [InputComponent, CommonModule, ButtonComponent, ReactiveFormsModule, AlertComponent],
+  imports: [InputComponent, CommonModule, ButtonComponent, ReactiveFormsModule],
   templateUrl: './user-create.component.html',
   styleUrl: './user-create.component.css',
 })

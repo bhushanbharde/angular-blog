@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +10,19 @@ export class PostService {
 
   constructor(private apiService: ApiService) { }
 
-  getPosts():Observable<any> {
-    return this.apiService.get('posts');
+  getPosts(page:number, perPage:number): Observable<any> {
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('per_page', perPage.toString());
+    return this.apiService.get('posts', params);
+  }
+
+  getAdminPosts(page: number, perPage: number): Observable<any> {
+    const args = new HttpParams()
+      .set('page', page.toString())
+      .set('per_page', perPage.toString());
+
+    return this.apiService.get('admin-posts', args);
   }
 
   getPost(id: number) {

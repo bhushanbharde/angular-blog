@@ -1,0 +1,93 @@
+<div class="px-10">
+  <div class="">
+    <div class="flex justify-between1 items-start gap-20">
+      <h1 class="text-4xl font-bold">{{ postDetails()?.post?.title }}</h1>
+      <div class="flex gap-4">
+        <a
+          [routerLink]="['/admin/posts', postDetails()?.post?.id, 'edit']"
+          class=""
+        >
+          <app-button variant="info">Edit</app-button>
+        </a>
+        <app-button variant="danger">Delete</app-button>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4 text-sm my-8">
+      <a
+        [routerLink]="['/users', postDetails()?.post?.user?.id]"
+        class="flex items-center gap-2"
+      >
+        <img
+          class="rounded-full w-8"
+          src="{{ postDetails()?.post?.user?.avatar }}"
+          alt=""
+        />
+        <span>{{ postDetails()?.post?.user?.name }}</span>
+      </a>
+      <a [routerLink]="" class="mx-2">
+        <app-button variant="outline">Follow</app-button>
+      </a>
+      <span
+        >{{ postDetails()?.post?.content.length / 200 | number: "1.0-0" }} min
+        read</span
+      >
+      <fa-icon [icon]="faCircle" class="text-gray-400 text-[4px]"></fa-icon>
+      <span>{{ postDetails()?.post?.created_at | date: "MMM d, y" }}</span>
+    </div>
+
+    <hr class="text-gray-700" />
+    <div class="flex justify-between py-4">
+      <div class="flex text-gray-400 text-sm gap-6">
+        <div>
+          <fa-icon [icon]="faHeart"></fa-icon>
+          {{ postDetails()?.post?.likes.length }}
+        </div>
+        <div>
+          <fa-icon [icon]="faComment"></fa-icon>
+          {{ postDetails()?.post?.comments.length }}
+        </div>
+        <div><fa-icon [icon]="faRetweet"></fa-icon> 12</div>
+      </div>
+    </div>
+    <hr class="text-gray-700" />
+
+    <div class="mt-12">
+      <img src="{{ postDetails()?.post?.cover_image }}" alt="" />
+    </div>
+
+    <div class="mt-12 text-lg leading-8">
+      <p>{{ postDetails()?.post?.content | stripTags }}</p>
+    </div>
+  </div>
+
+  <div class="mt-10 flex flex-wrap gap-3">
+    @for (item of postDetails()?.post?.tags; track $index) {
+      <a
+        routerLink="/tags/{{ item.name }}"
+        class="inline-block px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 hover:cursor-pointer"
+      >
+        {{ item.name }}
+      </a>
+    }
+  </div>
+
+  <!-- Comments -->
+  <!-- <div class="mx-20">
+        <h1 class="text-2xl my-10">Responses ({{ postDetails()?.post?.comments.length }})</h1>
+        <div class="mt-10 border-b border-b-gray-700 pb-10 ">
+            <div class="flex items-center gap-3 mb-4">
+                <img src="https://mockmind-api.uifaces.co/content/human/111.jpg" class="w-10 rounded-full" alt="">
+                <div class="">
+                    <p class="text-sm">Jon Doe</p>
+                </div>
+            </div>
+            <app-input placeholder="What are your thoughts?"></app-input>
+        </div>
+        <div class="">
+            @for (item of postDetails()?.post?.comments; track $index) {
+            <app-comment [comment]="item"></app-comment>
+            }
+        </div>
+    </div> -->
+</div>

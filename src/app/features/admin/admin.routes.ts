@@ -2,6 +2,9 @@ import { Routes } from "@angular/router";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { UserListComponent } from "./users/pages/user-list/user-list.component";
 import { AdminLayoutComponent } from "../../core/layout/admin-layout/admin-layout.component";
+import { TagListComponent } from "./tags/pages/tag-list/tag-list.component";
+import { PostListComponent } from "./posts/post-list/post-list.component";
+import { PostCreateComponent } from "./posts/post-create/post-create.component";
 
 export const ADMIN_ROUTES: Routes = [
 
@@ -27,27 +30,10 @@ export const ADMIN_ROUTES: Routes = [
             },
 
             // POSTS
-            // {
-            //     path: 'posts',
-            //     children: [
-
-            //         {
-            //             path: '',
-            //             component: AdminPostListPageComponent
-            //         },
-
-            //         {
-            //             path: 'create',
-            //             component: AdminPostCreatePageComponent
-            //         },
-
-            //         {
-            //             path: ':id/edit',
-            //             component: AdminPostEditPageComponent
-            //         }
-
-            //     ]
-            // },
+            {
+                path: 'posts', //admin/posts
+                loadChildren: () => import('./posts/posts.routes').then(m => m.POSTS_ROUTES)
+            },
 
             // CATEGORIES
             // {
@@ -73,27 +59,27 @@ export const ADMIN_ROUTES: Routes = [
             // },
 
             // TAGS
-            // {
-            //     path: 'tags',
-            //     children: [
+            {
+                path: 'tags',
+                children: [
 
-            //         {
-            //             path: '',
-            //             component: TagListPageComponent
-            //         },
+                    {
+                        path: '',
+                        component: TagListComponent
+                    },
 
-            //         {
-            //             path: 'create',
-            //             component: TagCreatePageComponent
-            //         },
+                    // {
+                    //     path: 'create',
+                    //     component: TagCreatePageComponent
+                    // },
 
-            //         {
-            //             path: ':id/edit',
-            //             component: TagEditPageComponent
-            //         }
+                    // {
+                    //     path: ':id/edit',
+                    //     component: TagEditPageComponent
+                    // }
 
-            //     ]
-            // },
+                ]
+            },
 
             // COMMENTS
             // {
