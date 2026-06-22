@@ -19,7 +19,7 @@ export class NavbarComponent {
   faSearch = faSearch;
   faBell = faBell;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService, private router: Router) {
     
   }
 
@@ -34,7 +34,7 @@ export class NavbarComponent {
 
   private clearAndRedirect(): void {
     this.authService.logout();               // Clears token + BehaviorSubject
-    this.router.navigate(['/login']);
+    this.router.navigate(['auth/login']);
   }
 
 }

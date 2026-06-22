@@ -31,16 +31,13 @@
           >
             <a routerLink="/posts">Posts</a>
           </li>
-          <!-- @if ((currentUser$ | async)) {
-            <li class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300">
-              <a routerLink="/admin"> Admin Panel </a>
+          @if(authService.isAdmin()){
+            <li
+              class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
+            >
+              <a routerLink="/admin">Dashboard</a>
             </li>
-          } -->
-          <li
-            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
-          >
-            <a routerLink="/admin">Dashboard</a>
-          </li>
+          }
           <li
             class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
           >
@@ -57,14 +54,19 @@
 
     <!-- User Logo -->
     <div class="flex items-center gap-6">
-      <div><a class="text-sm hover:text-blue-500" routerLink="/auth/login">Login</a></div>
+      @if(authService.isLoggedIn()){
+        <div><a class="text-sm hover:text-blue-500 hover:cursor-pointer" (click)="logout()">Logout</a></div>
+      }
+      @else{
+        <div><a class="text-sm hover:text-blue-500" routerLink="/auth/login">Login</a></div>
+      }
       <div
         class="px-3 py-2.5 rounded-[50%] border border-gray-700 hover:bg-gray-800 hover:cursor-pointer transition-all duration-300"
       >
         <fa-icon [icon]="faBell" class="text-gray-300"></fa-icon>
       </div>
       <div class="">
-        <a routerLink="#" class="">
+        <a routerLink="/profile" class="">
           <img
             class="w-10 border rounded-3xl"
             src="https://mockmind-api.uifaces.co/content/human/80.jpg"

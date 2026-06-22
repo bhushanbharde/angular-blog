@@ -54,8 +54,7 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    // return this.currentUserSubject.value?.role_id === 1;
-    return true;
+    return this.currentUserSubject.value?.role_id === 1;
   }
 
   // STEP 7 — Fetch current user from API (for app init)

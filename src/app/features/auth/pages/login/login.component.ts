@@ -44,7 +44,11 @@ export class LoginComponent {
         console.log('Login successful:', response);
         if (response?.status) {
           this.isLoading = false;
-          this.router.navigate(['/dashboard']);
+          const user = response?.user;
+          if (user.role_id === 1) {
+            this.router.navigate(['admin/dashboard']);
+          }
+          this.router.navigate(['/']);
         }
       },
       error: (err: any) => {
