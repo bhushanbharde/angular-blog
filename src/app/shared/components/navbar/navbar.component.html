@@ -1,49 +1,80 @@
-<div class="flex items-center bg-[#101828] border-b border-b-gray-700 fixed z-10 w-full">
-    <div class="pl-10 font-bold text-3xl text-blue-500 w-[18%] border-r border-r-gray-700 py-4">
-        <a routerLink="/" class="block">Blogg</a>
-    </div>
-    <div class="w-[82%] pr-10 py-2 flex justify-between">
-        <div class="flex items-center ">
-            <!-- Search Box -->
-            <div class="px-3">
-                <fa-icon [icon]="faSearch" class="text-gray-500 absolute ml-3 mt-2"></fa-icon>
-                <input class="pr-4 pl-10 py-2 bg-[#1c2433] border border-gray-700 w-100 text-sm rounded-sm focus:outline-none"
-                    type="search" name="" id="" placeholder="Search Blog" />
-            </div>
-    
-            <!-- Menu Items -->
-            <div class="px-3 text-sm">
-                <ul class="flex items-center justify-between mx-4 font-semibold">
-                    <li class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300">
-                        <a routerLink="/posts">Posts</a>
-                    </li>
-                    <li class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300">
-                        <a routerLink="/admin">Dashboard</a>
-                    </li>
-                    <li class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300">
-                        <a routerLink="/news">News</a>
-                    </li>
-                    <li class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300">
-                        <a routerLink="/settings">Settings</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<div
+  class="flex items-center bg-[#101828] border-b border-b-gray-700 fixed z-10 w-full"
+>
+  <div
+    class="pl-10 font-bold text-3xl text-blue-500 w-[18%] border-r border-r-gray-700 py-4"
+  >
+    <a routerLink="/" class="block">Blogg</a>
+  </div>
+  <div class="w-[82%] pr-10 py-2 flex justify-between">
+    <div class="flex items-center">
+      <!-- Search Box -->
+      <div class="ml-10">
+        <fa-icon
+          [icon]="faSearch"
+          class="text-gray-500 absolute ml-3 mt-2"
+        ></fa-icon>
+        <input
+          class="pr-4 pl-10 py-2 bg-[#1c2433] border border-gray-700 w-100 text-sm rounded-sm focus:outline-none"
+          type="search"
+          name=""
+          id=""
+          placeholder="Search Blog"
+        />
+      </div>
 
-        <!-- User Logo -->
-        <div class="flex items-center gap-6">
-            <div class="px-3 py-2.5 rounded-[50%] border border-gray-700 hover:bg-gray-800 hover:cursor-pointer transition-all duration-300">
-                <fa-icon [icon]="faBell" class="text-gray-300"></fa-icon>
-            </div>
-            <div class="">
-                <a routerLink="#" class="">
-                    <img class="w-10 border rounded-3xl" src="https://mockmind-api.uifaces.co/content/human/80.jpg"
-                        alt="user logo" />
-                </a>
-            </div>
-            <!-- <div class="">
+      <!-- Menu Items -->
+      <div class="px-3 text-sm">
+        <ul class="flex items-center justify-between mx-4 font-semibold">
+          <li
+            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
+          >
+            <a routerLink="/posts">Posts</a>
+          </li>
+          <!-- @if ((currentUser$ | async)) {
+            <li class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300">
+              <a routerLink="/admin"> Admin Panel </a>
+            </li>
+          } -->
+          <li
+            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
+          >
+            <a routerLink="/admin">Dashboard</a>
+          </li>
+          <li
+            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
+          >
+            <a routerLink="/news">News</a>
+          </li>
+          <li
+            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
+          >
+            <a routerLink="/settings">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- User Logo -->
+    <div class="flex items-center gap-6">
+      <div><a class="text-sm hover:text-blue-500" routerLink="/auth/login">Login</a></div>
+      <div
+        class="px-3 py-2.5 rounded-[50%] border border-gray-700 hover:bg-gray-800 hover:cursor-pointer transition-all duration-300"
+      >
+        <fa-icon [icon]="faBell" class="text-gray-300"></fa-icon>
+      </div>
+      <div class="">
+        <a routerLink="#" class="">
+          <img
+            class="w-10 border rounded-3xl"
+            src="https://mockmind-api.uifaces.co/content/human/80.jpg"
+            alt="user logo"
+          />
+        </a>
+      </div>
+      <!-- <div class="">
                 <fa-icon [icon]="faBars" class="text-xl cursor-pointer"></fa-icon>
             </div> -->
-        </div>
     </div>
+  </div>
 </div>

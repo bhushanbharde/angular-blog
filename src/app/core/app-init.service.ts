@@ -1,8 +1,8 @@
 // src/app/core/app-init.service.ts
 import { Injectable } from '@angular/core';
-import { AuthService } from './services/auth.service';
 import { TokenService } from './token.service';
 import { catchError, EMPTY } from 'rxjs';
+import { AuthService } from '../features/auth/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class AppInitService {

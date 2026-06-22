@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from "../../../../shared/components/input/input.component";
 import { ButtonComponent } from "../../../../shared/components/button/button.component";
-import { AuthService } from '../../../../core/services/auth.service';
+import { AuthService } from '../../services/auth.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, RouterModule, InputComponent, ButtonComponent],
+  imports: [ReactiveFormsModule, RouterModule, InputComponent, ButtonComponent, NgClass],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   loginForm: FormGroup;
   isLoading = false;
-  errorMessage = '';
+  errorMessage = signal('');
 
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.fb.group({
@@ -29,7 +30,7 @@ export class LoginComponent {
   get password() { return this.loginForm.get('password')!; }
 
   onSubmit(): void {
-    // console.log(this.loginForm);
+    console.log(this.loginForm.value);
 
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
@@ -37,16 +38,18 @@ export class LoginComponent {
     }
     
     this.isLoading = true;
-    this.errorMessage = '';
 
     this.authService.login(this.loginForm.value).subscribe({
       next: (response: any) => {
-        this.isLoading = false;
         console.log('Login successful:', response);
-        // this.router.navigate(['/dashboard']);
+        if (response?.status) {
+          this.isLoading = false;
+          this.router.navigate(['/dashboard']);
+        }
       },
       error: (err: any) => {
-        this.errorMessage = err.error?.message || 'Login failed. Please try again.';
+        console.log(err)
+        this.errorMessage.set(err.error?.message || 'Login failed. Please try again.');
         this.isLoading = false;
       }
     });

@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { WebsiteLayoutComponent } from './layouts/website-layout/website-layout.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { authGuard } from '../../core/guards/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 // import { LoginComponent } from './features/auth/pages/login/login.component';
 // import { authGuard } from '../../core/guards/auth.guard';
 // import { WebsiteLayoutComponent } from './layout/website-layout.component';
@@ -30,11 +32,11 @@ export const WEBSITE_ROUTES: Routes = [
                 component: HomeComponent
             },
 
-            // BLOG LIST
-            // {
-            //     path: 'posts',
-            //     component: BlogListPageComponent
-            // },
+            //BLOG LIST
+            {
+                path: 'posts',
+                component: HomeComponent
+            },
 
             // POST DETAILS
             {
@@ -61,12 +63,12 @@ export const WEBSITE_ROUTES: Routes = [
             //     component: SearchPageComponent
             // },
 
-            // // USER PROFILE
-            // {
-            //     path: 'profile',
-            //     canActivate: [authGuard],
-            //     component: ProfilePageComponent
-            // },
+            // USER PROFILE
+            {
+                path: 'profile',
+                // canActivate: [authGuard],
+                component: ProfileComponent
+            },
 
         ]
     }

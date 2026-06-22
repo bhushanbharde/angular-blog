@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { AuthService } from "../../../core/services/auth.service";
 import { Router, RouterLink } from '@angular/router';
 import {User} from '../../../core/models/user.model';
 import { Observable } from 'rxjs';
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { faBars, faSearch, faBell } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../../features/auth/services/auth.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',

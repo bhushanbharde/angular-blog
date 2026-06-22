@@ -15,9 +15,9 @@
     }
     
     <div class="">
-        <table class="w-full text-sm text-gray-400">
+        <table class="w-full text-sm">
             <thead>
-                <tr class="border-b border-b-gray-700 text-left">
+                <tr class="border-b border-b-gray-700 text-left text-gray-400">
                     <th class="px-3 py-3">No</th>
                     <th class="px-3 py-3">Avatar</th>
                     <th class="px-3 py-3">Name</th>
@@ -28,19 +28,19 @@
             <tbody>
                 @for(user of users(); track $index) {
                 <tr class="border-b border-b-gray-700 text-left">
-                    <td class="px-3 py-2">{{ $index + 1 }}</td>
-                    <td class="px-3 py-2">
+                    <td class="px-3 py-2 text-gray-400">{{ $index + 1 }}</td>
+                    <td class="px-3 py-2 text-gray-400">
                         <img src="{{ user?.avatar }}" alt="" class="w-12 rounded-full">
                     </td>
-                    <td class="px-3 py-2">{{ user?.name }}</td>
-                    <td class="px-3 py-2">{{ user?.email }}</td>
+                    <td class="px-3 py-2 text-gray-400">{{ user?.name }}</td>
+                    <td class="px-3 py-2 text-gray-400">{{ user?.email }}</td>
                     <td class="px-3 py-2">
-                        <a routerLink="/admin/users/{{ user?.id }}" class="">
+                        <a routerLink="/admin/users/{{ user?.id }}">
                             <app-button variant="primary">View</app-button>
                         </a>
                     </td>
                     <td class="px-3 py-2">
-                        <a routerLink="/admin/users/{{ user?.id }}/edit" class="">
+                        <a routerLink="/admin/users/{{ user?.id }}/edit">
                             <app-button variant="secondary">Edit</app-button>
                         </a>
                     </td>

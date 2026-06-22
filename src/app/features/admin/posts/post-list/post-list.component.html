@@ -4,7 +4,7 @@
             Manage Posts
         </h1>
         <a routerLink="/admin/posts/create" class="">
-            <app-button variant="info">New Post</app-button>
+            <app-button variant="primary">New Post</app-button>
         </a>
     </div>
 
@@ -15,10 +15,10 @@
     }
 
     <div class="">
-        <table class="w-full text-sm text-gray-400">
+        <table class="w-full text-sm">
             <thead>
-                <tr class="border-b border-b-gray-700 text-left">
-                    <th class="px-3 py-3">Sr. No</th>
+                <tr class="border-b border-b-gray-700 text-left text-gray-400">
+                    <th class="px-3 py-3">#</th>
                     <th class="px-3 py-3">Title</th>
                     <th class="px-3 py-3">Author</th>
                     <th class="px-3 py-3">Comments</th>
@@ -29,11 +29,11 @@
             <tbody>
                 @for(post of posts(); track $index) {
                 <tr class="border-b border-b-gray-700 text-left">
-                    <td class="px-3 py-2">{{ post?.id }}</td>
-                    <td class="px-3 py-2">{{post?.title}} </td>
-                    <td class="px-3 py-2">{{ post?.user?.name }}</td>
-                    <td class="px-3 py-2">{{ post?.comments_count }}</td>
-                    <td class="px-3 py-2">{{ post?.likes_count }}</td>
+                    <td class="px-3 py-2 text-gray-400">{{ post?.id }}</td>
+                    <td class="px-3 py-2 text-gray-400">{{post?.title}} </td>
+                    <td class="px-3 py-2 text-gray-400">{{ post?.user?.name }}</td>
+                    <td class="px-3 py-2 text-gray-400">{{ post?.comments_count }}</td>
+                    <td class="px-3 py-2 text-gray-400">{{ post?.likes_count }}</td>
                     <td class="px-3 py-2">
                         <a routerLink="/admin/posts/{{ post?.id }}" class="">
                             <app-button variant="primary">View</app-button>
@@ -52,10 +52,10 @@
 
     <!-- Pagination Controls -->
     <div class="mt-10 flex gap-10 items-center text-sm text-gray-400">
-        <app-button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1" variant="outline">Previous</app-button>
+        <app-button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1" variant="secondary">Previous</app-button>
     
         <span>Page {{ currentPage }} of {{ lastPage }} | Total: {{ totalPosts }}</span>
     
-        <app-button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === lastPage"  variant="outline">Next</app-button>
+        <app-button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === lastPage"  variant="secondary">Next</app-button>
     </div>
 </div>
