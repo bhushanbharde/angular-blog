@@ -1,5 +1,5 @@
-<div class="">
-    <img class="h-2/5 w-full object-cover" src="{{ article?.cover_image }}" alt="">
+<div class="border border-gray-700 bg-gray-800/50 p-8 rounded-xl">
+    <img class="h-2/5 w-full object-cover aspect-video rounded-sm" src="{{ article?.cover_image }}" alt="">
     <div class="text-sm flex items-center gap-2 my-6 text-gray-400">
 
         <a routerLink="/users/{{ user?.id }}" class="flex items-center gap-2">
@@ -11,10 +11,12 @@
         <span>{{ article?.created_at | date:'MMM dd' }}</span>
     </div>
 
-    <div class="my-4">
-        <h2 class="mt-2 mb-2 text-lg font-bold line-clamp-2">{{ article?.title }}</h2>
-        <p class="line-clamp-2 text-md text-gray-400">{{ article?.content | stripTags }}</p>
-    </div>
+    <a routerLink="/post/{{article?.id}}">
+        <div class="my-4">
+            <h2 class="mt-2 mb-2 text-lg font-bold line-clamp-1">{{ article?.title }}</h2>
+            <p class="line-clamp-2 text-md text-gray-400">{{ article?.content | stripTags }}</p>
+        </div>
+    </a>
 
     <div class="flex justify-between items-center py-4 my-2">
         <div class="flex text-gray-400 text-sm gap-6">

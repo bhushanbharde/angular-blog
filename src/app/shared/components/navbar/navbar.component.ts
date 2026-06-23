@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import {User} from '../../../core/models/user.model';
 import { Observable } from 'rxjs';
@@ -14,15 +14,30 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  currentUser$: any;
+  currentUser: any;
   faBars = faBars;
   faSearch = faSearch;
   faBell = faBell;
+  isAdminUser = false;
+  avatar = signal('');
 
   constructor(public authService: AuthService, private router: Router) {
-    
+    this.isAdminUser = authService.isAdmin();
+    this.currentUser = authService.fetchCurrentUser();
+    // console.log(this.currentUser);
   }
 
+  ngOnInit() {
+    this.authService.getCurrentUser().subscribe({
+      next: (res: any) => {
+        // console.log(res)
+        if (res) {
+          this.avatar.set(res?.user?.avatar);
+        }
+      },
+      error: err => console.log(err)
+    })
+  }
 
   logout(): void {
     // Optional: call Laravel's logout endpoint to invalidate server-side token
@@ -37,8 +52,5 @@ export class NavbarComponent {
     this.router.navigate(['auth/login']);
   }
 
-}
-function toSignal<T>(arg0: Observable<User | null>): any {
-  throw new Error('Function not implemented.');
 }
 

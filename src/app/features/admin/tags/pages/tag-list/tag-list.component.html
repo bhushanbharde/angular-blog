@@ -1,17 +1,48 @@
-<table class="border">
-    <thead class="border">
-        <th>Name</th>
-        <th>Username</th>
-        <th>Email</th>
-    </thead>
-    <tbody>
+<div class="border border-gray-700 bg-gray-800/50 rounded-xl p-6">
+    <div class="flex items-center justify-between border-b border-b-gray-700 text-left pb-6">
+        <h1 class="text-2xl font-bold ">
+            Manage Tags
+        </h1>
+        <a routerLink="/admin/tags/create" class="">
+            <app-button variant="primary">New Tag</app-button>
+        </a>
+    </div>
 
-        @for(tag of tags(); track tag){
-            <tr class="border">
-                <td class="py-2 px-4">{{tag?.name}}</td>
-                <td class="py-2 px-4">{{tag?.username}}</td>
-                <td class="py-2 px-4">{{tag?.email}}</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    @if (message()) {
+    <div class="px-6">
+        <app-alert [type]="'success'" [message]="message()"></app-alert>
+    </div>
+    }
+
+    <div class="">
+        <table class="w-full text-sm">
+            <thead>
+                <tr class="border-b border-b-gray-700 text-left text-gray-400">
+                    <th class="px-3 py-3">#</th>
+                    <th class="px-3 py-3">Tag Name</th>
+                    <th class="px-3 py-3">Posts</th>
+                    <th class="px-3 py-3" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(tag of tags(); track $index) {
+                <tr class="border-b border-b-gray-700 text-left">
+                    <td class="px-3 py-2 text-gray-400">{{ tag?.id }}</td>
+                    <td class="px-3 py-2 text-gray-400">{{ tag?.name}} </td>
+                    <td class="px-3 py-2 text-gray-400">{{ tag?.posts_count }}</td>
+                    <td class="px-3 py-2">
+                        <a routerLink="/admin/tags/{{ tag?.id }}" class="">
+                            <app-button variant="danger">Delete</app-button>
+                        </a>
+                    </td>
+                    <td class="px-3 py-2">
+                        <a routerLink="/admin/tags/{{ tag?.id }}/edit" class="">
+                            <app-button variant="secondary">Edit</app-button>
+                        </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

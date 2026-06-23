@@ -5,6 +5,7 @@ import { WebsiteLayoutComponent } from './layouts/website-layout/website-layout.
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { authGuard } from '../../core/guards/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { TagComponent } from './tag/tag.component';
 // import { LoginComponent } from './features/auth/pages/login/login.component';
 // import { authGuard } from '../../core/guards/auth.guard';
 // import { WebsiteLayoutComponent } from './layout/website-layout.component';
@@ -51,11 +52,11 @@ export const WEBSITE_ROUTES: Routes = [
             //     component: CategoryPostsPageComponent
             // },
 
-            // // TAG POSTS
-            // {
-            //     path: 'tags/:slug',
-            //     component: TagPostsPageComponent
-            // },
+            // TAG POSTS
+            {
+                path: 'tag/:slug',
+                component: TagComponent
+            },
 
             // // SEARCH
             // {
@@ -64,11 +65,11 @@ export const WEBSITE_ROUTES: Routes = [
             // },
 
             // USER PROFILE
-            {
-                path: 'profile',
-                // canActivate: [authGuard],
-                component: ProfileComponent
-            },
+            // {
+            //     path: 'profile',
+            //     // canActivate: [authGuard],
+            //     component: ProfileComponent
+            // },
 
         ]
     }

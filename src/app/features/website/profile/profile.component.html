@@ -1,2 +1,19 @@
-<h1>Name: {{ user()?.name }}</h1>
-<h1>Role: {{ user()?.role_id }}</h1>
+<app-navbar></app-navbar>
+<div class="h-screen px-40 py-28">
+  <div class="bg-gray-800/50 px-10 py-10 rounded-xl">
+    <h1 class="text-xl font-bold mb-4">My Profile</h1>
+    <div class="flex justify-between border border-gray-700 p-10 rounded-xl">
+      <div class="flex items-center gap-6">
+        <img class="w-24 rounded-[50%]" src="{{user()?.avatar}}" alt="" />
+        <div class="">
+          <h2 class="text-lg ">{{ user()?.name }}</h2>
+          <p class="text-gray-400">{{ user()?.role_id === 1 ? "Superadmin" : (user()?.role_id === 2 ? "Admin" : "Member") }}</p>
+        </div>
+      </div>
+
+      <app-button variant="secondary"><fa-icon [icon]="faPencil" class="mr-1"></fa-icon> Edit</app-button>
+    </div>
+
+    <div class="border border-gray-700 p-10 rounded-xl mt-8"></div>
+  </div>
+</div>

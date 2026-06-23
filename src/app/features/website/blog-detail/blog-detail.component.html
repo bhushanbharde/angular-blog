@@ -4,9 +4,6 @@
 
         <div class="flex justify-between items-start">
             <h1 class="text-4xl font-bold">{{ postDetails()?.post?.title }}</h1>
-            <a [routerLink]="['/posts', postDetails()?.post?.id, 'edit'] " class="ml-10">
-                <app-button variant="info">Edit</app-button>
-            </a>
         </div>
 
         <div class="flex items-center gap-4 text-sm my-8">

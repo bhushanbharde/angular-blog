@@ -31,49 +31,61 @@
           >
             <a routerLink="/posts">Posts</a>
           </li>
-          @if(authService.isAdmin()){
+          <li
+            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
+          >
+            <a routerLink="/categories">Categories</a>
+          </li>
+          <li
+            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
+          >
+            <a routerLink="/tags">Hot Topics</a>
+          </li>
+          @if (isAdminUser) {
             <li
               class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
             >
               <a routerLink="/admin">Dashboard</a>
             </li>
           }
-          <li
-            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
-          >
-            <a routerLink="/news">News</a>
-          </li>
-          <li
-            class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
-          >
-            <a routerLink="/settings">Settings</a>
-          </li>
         </ul>
       </div>
     </div>
 
     <!-- User Logo -->
     <div class="flex items-center gap-6">
-      @if(authService.isLoggedIn()){
-        <div><a class="text-sm hover:text-blue-500 hover:cursor-pointer" (click)="logout()">Logout</a></div>
+      @if (authService.isLoggedIn()) {
+        <div>
+          <a
+            class="text-sm hover:text-blue-500 hover:cursor-pointer"
+            (click)="logout()"
+            >Logout</a
+          >
+        </div>
+        <div
+          class="px-3 py-2.5 rounded-[50%] border border-gray-700 hover:bg-gray-800 hover:cursor-pointer transition-all duration-300"
+        >
+          <fa-icon [icon]="faBell" class="text-gray-300"></fa-icon>
+        </div>
+      } @else {
+        <div>
+          <a class="text-sm hover:text-blue-500" routerLink="/auth/login"
+            >Login</a
+          >
+        </div>
       }
-      @else{
-        <div><a class="text-sm hover:text-blue-500" routerLink="/auth/login">Login</a></div>
+
+      @if (authService.isLoggedIn()) {
+        <div class="">
+          <a routerLink="/profile" class="">
+            <img
+              class="w-10 border rounded-3xl"
+              src="{{ avatar() }}"
+              alt="user logo"
+            />
+          </a>
+        </div>
       }
-      <div
-        class="px-3 py-2.5 rounded-[50%] border border-gray-700 hover:bg-gray-800 hover:cursor-pointer transition-all duration-300"
-      >
-        <fa-icon [icon]="faBell" class="text-gray-300"></fa-icon>
-      </div>
-      <div class="">
-        <a routerLink="/profile" class="">
-          <img
-            class="w-10 border rounded-3xl"
-            src="https://mockmind-api.uifaces.co/content/human/80.jpg"
-            alt="user logo"
-          />
-        </a>
-      </div>
       <!-- <div class="">
                 <fa-icon [icon]="faBars" class="text-xl cursor-pointer"></fa-icon>
             </div> -->

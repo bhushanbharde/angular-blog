@@ -15,6 +15,10 @@ export const routes: Routes = [
         canActivate: [authGuard, adminGuard],
     },
     {
+        path: 'profile',
+        loadComponent: () => import('./features/website/profile/profile.component').then(m => m.ProfileComponent)
+    },
+    {
         path: '',
         loadChildren: () => import('./features/website/website.routes').then((m) => m.WEBSITE_ROUTES),
     },

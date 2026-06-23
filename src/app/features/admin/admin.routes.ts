@@ -5,6 +5,7 @@ import { AdminLayoutComponent } from "../../core/layout/admin-layout/admin-layou
 import { TagListComponent } from "./tags/pages/tag-list/tag-list.component";
 import { PostListComponent } from "./posts/post-list/post-list.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
+import { TagCreateComponent } from "./tags/pages/tag-create/tag-create.component";
 
 export const ADMIN_ROUTES: Routes = [
 
@@ -68,15 +69,15 @@ export const ADMIN_ROUTES: Routes = [
                         component: TagListComponent
                     },
 
-                    // {
-                    //     path: 'create',
-                    //     component: TagCreatePageComponent
-                    // },
+                    {
+                        path: 'create',
+                        component: TagCreateComponent
+                    },
 
-                    // {
-                    //     path: ':id/edit',
-                    //     component: TagEditPageComponent
-                    // }
+                    {
+                        path: ':id/edit',
+                        component: TagCreateComponent
+                    }
 
                 ]
             },

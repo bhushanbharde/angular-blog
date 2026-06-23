@@ -1,0 +1,40 @@
+<div class="px-24">
+  <div
+    class="flex flex-wrap items-center whitespace-nowrap1 gap-3 overflow-x-scroll1 text-sm"
+  >
+    @for (tag of tags(); track tag.id) {
+      <div
+        (click)="getTagBySlug(tag?.shortname)"
+        [ngClass]="activeTag() === tag?.shortname ? 'bg-blue-600 ' : 'bg-gray-800'"
+        class="inline-block px-4 py-2  rounded-lg hover:bg-gray-700 transition duration-300 hover:cursor-pointer"
+      >
+        {{ tag.name }}
+      </div>
+    }
+  </div>
+  <div class="mt-10 text-center">
+    <h1 class="text-4xl font-bold">
+      {{ tags()?.name }}
+    </h1>
+    <div class="w-fit mx-auto mt-4 text-sm flex items-center">
+      <span>Topic</span>
+      <fa-icon [icon]="faCircle" class="text-[4px] mx-2"></fa-icon>
+      <span>45k followers</span>
+      <fa-icon [icon]="faCircle" class="text-[4px] mx-2"></fa-icon>
+      <span>{{ tags()?.post_count }} stories</span>
+    </div>
+  </div>
+
+  <div class="mt-10 grid grid-cols-2 gap-10">
+    @for (post of posts(); track $index) {
+      <app-article-card [article]="post" [user]="post?.user"></app-article-card>
+    }
+  </div>
+</div>
+
+<!-- 
+tag list - name, id, post count
+tag - posts
+
+ 
+ -->
