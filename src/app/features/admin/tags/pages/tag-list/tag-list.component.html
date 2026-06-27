@@ -20,6 +20,7 @@
                 <tr class="border-b border-b-gray-700 text-left text-gray-400">
                     <th class="px-3 py-3">#</th>
                     <th class="px-3 py-3">Tag Name</th>
+                    <th class="px-3 py-3">Slug</th>
                     <th class="px-3 py-3">Posts</th>
                     <th class="px-3 py-3" colspan="2">Actions</th>
                 </tr>
@@ -29,6 +30,7 @@
                 <tr class="border-b border-b-gray-700 text-left">
                     <td class="px-3 py-2 text-gray-400">{{ tag?.id }}</td>
                     <td class="px-3 py-2 text-gray-400">{{ tag?.name}} </td>
+                    <td class="px-3 py-2 text-gray-400">{{ tag?.shortname}} </td>
                     <td class="px-3 py-2 text-gray-400">{{ tag?.posts_count }}</td>
                     <td class="px-3 py-2">
                         <a routerLink="/admin/tags/{{ tag?.id }}" class="">

@@ -25,8 +25,8 @@ export class TagListComponent {
   ngOnInit(): void {
     this.tagService.getTags().subscribe({
       next: (response: any) => {
-        console.log(response);
-        this.tags.set(response?.tags);
+        // console.log(response);
+        this.tags.set(response);
       },
       error: (err) => console.log(err)
     });

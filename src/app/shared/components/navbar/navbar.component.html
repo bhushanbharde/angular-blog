@@ -39,7 +39,7 @@
           <li
             class="px-2 hover:text-blue-600 hover:cursor-pointer transition duration-300"
           >
-            <a routerLink="/tags">Hot Topics</a>
+            <a routerLink="/tag/{{topTag()}}">Hot Topics</a>
           </li>
           @if (isAdminUser) {
             <li
@@ -69,8 +69,8 @@
         </div>
       } @else {
         <div>
-          <a class="text-sm hover:text-blue-500" routerLink="/auth/login"
-            >Login</a
+          <a class="" routerLink="/auth/login"
+            ><app-button variant="primary">Login</app-button></a
           >
         </div>
       }

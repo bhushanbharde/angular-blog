@@ -1,1 +1,41 @@
-<p>tag-create works!</p>
+<div class="mx-40 bg-gray-800/50 border border-gray-700 rounded-xl">
+  <div class="border-b border-b-gray-700 p-6">
+    <h1 class="text-4xl font-bold">{{ pageHeading }}</h1>
+    <a routerLink="['/admin/posts', postDetails()?.post?.id, 'edit']"></a>
+  </div>
+
+  @if (message()) {
+    <div class="px-6">
+      <app-alert [message]="message()" [type]="'success'"></app-alert>
+    </div>
+  }
+
+  <div class="px-6 pb-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="text-sm">
+      <div class="mt-8">
+        <label class="mb-2 block">Tag Name</label>
+        <app-input
+          type="text"
+          formControlName="tag_name"
+          value=""
+          placeholder="Enter Tag Name"
+        >
+        </app-input>
+      </div>
+      @if (f["tag_name"].touched && f["tag_name"].invalid) {
+        @if (f["tag_name"].errors?.["required"]) {
+          <p class="mt-2 text-red-500">Name field is required.</p>
+        }
+        @if (f["tag_name"].errors?.["minlength"]) {
+          <p class="mt-2 text-red-500">
+            Name must span at least 2 characters.
+          </p>
+        }
+      }
+
+      <div class="mt-8 w-fit">
+        <app-button type="submit" variant="primary">{{ buttonTitle }}</app-button>
+      </div>
+    </form>
+  </div>
+</div>

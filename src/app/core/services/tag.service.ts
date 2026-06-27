@@ -18,4 +18,16 @@ export class TagService {
   getTagBySlug(slug: string) {
     return this.apiService.get(`tag/${slug}`);
   }
+
+  createTag(data:any) {
+    return this.apiService.post('tags', data);
+  }
+
+  updateTag(id:number, data:any) {
+    return this.apiService.put(`tags/${id}`, data);
+  }
+
+  getHotTag() {
+    return this.apiService.get('top-tags');
+  }
 }

@@ -1,14 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { TagService } from '../../../core/services/tag.service';
-import { ActivatedRoute, RouterLink, } from "@angular/router";
+import { ActivatedRoute, RouterLink, RouterLinkWithHref } from "@angular/router";
 import { ArticleCardComponent } from "../../../shared/components/article-card/article-card.component";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule, NgClass } from '@angular/common';
+import { ButtonComponent } from "../../../shared/components/button/button.component";
 
 @Component({
   selector: 'app-tag',
-  imports: [ArticleCardComponent, FaIconComponent, NgClass, CommonModule],
+  imports: [ArticleCardComponent, FaIconComponent, NgClass, CommonModule, RouterLinkWithHref, ButtonComponent],
   templateUrl: './tag.component.html',
   styleUrl: './tag.component.css',
 })
@@ -34,7 +35,7 @@ export class TagComponent {
 
     this.tagService.getTagBySlug(slug).subscribe({
       next: (response: any) => {
-        console.log(response)
+        // console.log(response)
         if (response) {
           this.posts.set(response[0]?.posts)
         }

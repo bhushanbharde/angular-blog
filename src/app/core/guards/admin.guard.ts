@@ -9,7 +9,7 @@ export const adminGuard:
         const router = inject(Router);
 
         const user = authService.currentUser$;
-        console.log(authService.currentUser$)
+        // console.log(authService.currentUser$)
         if (authService.isAdmin()) {
             return true;
         }
